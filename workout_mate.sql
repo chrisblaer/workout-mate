@@ -2,8 +2,8 @@ CREATE DATABASE workout_mate;
 
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
-  username VARCHAR(50),
-  email VARCHAR(400),
+  username VARCHAR(50) UNIQUE,
+  email VARCHAR(400) UNIQUE,
   password_digest VARCHAR(400)
 );
 
