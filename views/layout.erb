@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/stylesheets/main.css">
+  <title>Workout! Mate</title>
+</head>
+<body>
+  <header>
+  <h1>Workout! Mate</h1>
+  <% if logged_in? %>
+    Logged in as: <%= session[:username] %> (<%= session[:email] %>)
+    <form action="/session" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>Logout</button>
+    </form>
+
+    <form action="/users" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>Delete user</button>
+    </form>
+    
+    <a href="/">Home</a>
+    <a href="/profile">Profile</a>
+    <a href="/workouts">Workouts</a>
+
+  <% else %>
+    <form action="/session" method="post">
+      <input type="email" name="email" placeholder="Email">
+      <input type="password" name="password" placeholder="Password">
+      <button>Login</button>
+    </form>
+    <a href="/signup">Sign Up</a>
+    <a href="/">Home</a>
+  <% end %>
+
+
+  </header>
+
+
+  <main>
+    <%= yield %>
+  </main>
+  <footer>
+    some sort of footer
+  </footer>
+</body>
+</html>

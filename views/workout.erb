@@ -1,0 +1,26 @@
+<h1>on workout overview page</h1>
+
+<a href="/workouts/new">Create new workout</a>
+
+<p>All my workouts:</p>
+
+<% current_user.workouts.each do |workout| %>
+  <ul>
+    <li>
+      <p>Workout ID: <%= workout.id %></p>
+      <p>Workout Title: <%= workout.title %></p>
+      <p>Workout Description: <%= workout.description %></p>
+      <p>Workout's associated user_id: <%= workout.user_id %></p>
+      
+      <form action="/workouts/<%= workout.id %>/edit">
+        <button>Edit workout</button>
+      </form>
+
+      <form action="/workouts" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="workout_id" value="<%= workout.id %>">
+        <button>Delete workout</button>
+      </form>
+    </li>
+  </ul>
+<% end %>
