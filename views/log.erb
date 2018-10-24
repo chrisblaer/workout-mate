@@ -1,0 +1,30 @@
+<h1>on log page</h1>
+
+<form action="/workouts/log" method="post">
+  <%# get rid of next line; don't need anymore %>
+  <input type="hidden" name="workout_id" value="<%= @workout.id %>">
+  <p>Workout Title: <%= @workout.title %></p>
+  <p>Workout Description: <%= @workout.description %></p>
+
+  <br>
+
+  <% @exercises_workout_rel.count.times do |num| %>
+    <p>
+    <% exercise_list.each do |exercise| %>
+      <% if exercise.id == @exercises_workout_rel[num].exercise_id %>
+        <%# get rid of next line; don't need anymore %>
+        <input type="hidden" name="exercises[<%= num %>]" value="<%= exercise.id %>">
+        Exercise: <%= exercise.title %>
+      <% end %>
+    <% end %>
+      <input type="hidden" name="exercises_workout_ids[<%= num %>]" value="<%= @exercises_workout_rel[num].id %>">
+      Set: <input type="number" name="sets[<%= num %>]" value="1">
+      Weight: <input type="number" name="weights[<%= num %>]">
+      Reps: <input type="number" name="reps[<%= num %>]">
+    </p>
+    <% end %>
+  <input type="hidden" name="created_date" value="<%= Time.now %>">
+  <p>
+    <button>Log workout session</button>
+  </p>
+</form>

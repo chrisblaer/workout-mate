@@ -12,13 +12,16 @@
       <p>Workout Description: <%= workout.description %></p>
       <p>Workout's associated user_id: <%= workout.user_id %></p>
       
+      <form action="/workouts/<%= workout.id %>/log">
+        <button>Log workout</button>
+      </form>
+
       <form action="/workouts/<%= workout.id %>/edit">
         <button>Edit workout</button>
       </form>
 
-      <form action="/workouts" method="post">
+      <form action="/workouts/<%= workout.id %>" method="post">
         <input type="hidden" name="_method" value="delete">
-        <input type="hidden" name="workout_id" value="<%= workout.id %>">
         <button>Delete workout</button>
       </form>
     </li>

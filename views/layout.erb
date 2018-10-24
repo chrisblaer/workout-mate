@@ -17,7 +17,7 @@
       <button>Logout</button>
     </form>
 
-    <form action="/users" method="post">
+    <form action="/users/<%= session[:user_id] %>" method="post">
       <input type="hidden" name="_method" value="delete">
       <button>Delete user</button>
     </form>

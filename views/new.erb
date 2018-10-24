@@ -1,8 +1,21 @@
 <h1>on new workout page</h1>
 
 <form action="/workouts" method="post">
-  <input type="text" name="title" placeholder="Title">
-  <input type="text" name="description" placeholder="Description">
+  <input type="text" name="workout_title" placeholder="Title">
+  <input type="text" name="workout_description" placeholder="Description">
+  <p>
+
+  <p>Choose workout's exercises:</p>
+  <% 4.times do |num| %>
+    <p>
+      <select name="exercises[<%= num %>]">
+        <% exercise_list.each do |exercise| %>
+          <option value="<%= exercise.id %>"><%= exercise.title %></option>
+        <% end %>
+      </select>
+    </p>
+  <% end %>
+
   <p>
     <button>Create workout</button>
   </p>
