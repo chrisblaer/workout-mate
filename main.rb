@@ -133,12 +133,6 @@ put '/workouts/:id' do
   workout.description = params[:workout_description]
   workout.save
 
-  params['exercises_workout_rel'].each do |exercises_workouts_id, exercise_id|
-    exercises_workout_rel = exercises_workout_list.find_by(id: exercises_workouts_id)
-    exercises_workout_rel.exercise_id = exercise_id
-    exercises_workout_rel.save
-  end
-
   redirect to('/workouts')
 end
 

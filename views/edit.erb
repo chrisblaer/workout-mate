@@ -4,19 +4,5 @@
   <input type="hidden" name="_method" value="put">
   Title: <input type="text" name="workout_title" value="<%= @workout.title %>">
   Description: <input type="text" name="workout_description" value="<%= @workout.description %>">
-  <button>Update workout</button>
-
-  <p>Update your workout's exercises:</p>
-
-  <% @exercises_workout_rel.each do |rel| %>
-    <select name="exercises_workout_rel[<%= rel.id %>]">
-      <% exercise_list.each do |exercise| %>
-        <% if exercise.id == rel.exercise_id %>
-          <option value="<%= exercise.id %>" selected="<%= rel.exercise_id %>"><%= exercise.title %></option>
-        <% else %>
-          <option value="<%= exercise.id %>"><%= exercise.title %></option>
-        <% end %>
-      <% end %>
-    </select>
-  <% end %>
+  <button>Update Title & Description</button>
 </form>
