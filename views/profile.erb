@@ -1,3 +1,23 @@
 <h1>on profile page</h1>
 
 <a href="/workouts/new">Create new workout</a>
+
+<h2>Your recent workout logs:</h2>
+
+<% current_user.workouts.each do |workout| %>
+  <h3>Workout title: <%= workout.title %></h3>
+  <% workout.exercises_workouts.each do |exercise_workout_rel| %>
+    <p>
+      <h4>Exercise: <%= exercise_list.find_by(id: exercise_workout_rel.exercise_id).title %> | Total weight lifted: <%= exercise_workout_rel.logs.sum('weight')%>kg</h4>
+    </p>
+
+    <% exercise_workout_rel.logs.each do |log| %>
+      <p>
+        Set: <%= log.set_no %> |
+        Weight: <%= log.weight %>kg |
+        Reps: <%= log.reps %>
+      </p>
+    <% end %>
+  <% end %>
+  <br>
+<% end %>

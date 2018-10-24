@@ -27,6 +27,10 @@ helpers do
   def exercises_workout_list
     ExercisesWorkout.all
   end
+
+  def workout_log
+
+  end
 end
 
 get '/' do
