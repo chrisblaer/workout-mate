@@ -1,8 +1,6 @@
 <h1>on log page</h1>
 
 <form action="/workouts/log" method="post">
-  <%# get rid of next line; don't need anymore %>
-  <input type="hidden" name="workout_id" value="<%= @workout.id %>">
   <p>Workout Title: <%= @workout.title %></p>
   <p>Workout Description: <%= @workout.description %></p>
 
@@ -12,8 +10,6 @@
     <p>
     <% exercise_list.each do |exercise| %>
       <% if exercise.id == @exercises_workout_rel[num].exercise_id %>
-        <%# get rid of next line; don't need anymore %>
-        <input type="hidden" name="exercises[<%= num %>]" value="<%= exercise.id %>">
         Exercise: <%= exercise.title %>
       <% end %>
     <% end %>
