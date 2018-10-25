@@ -72,6 +72,11 @@ post '/users' do
   redirect to('/profile')
 end
 
+get '/users/delete' do
+  redirect to('/') unless logged_in?
+  erb :delete
+end
+
 delete '/users/:id' do
   user = User.find_by(id: params[:id])
   user.destroy

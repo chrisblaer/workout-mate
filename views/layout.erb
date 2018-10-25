@@ -12,34 +12,39 @@
   <header>
     <a href="/" class="logo">Workout Mate</a>
 
-    <menu class="main-menu">
-      <p><a href="/">Home</a></p>
-      <p><a href="/">About</a></p>
-    </menu>
-
-    <section class="login-signup">
-      <% if logged_in? %>
-        Logged in as: <%= session[:username] %> (<%= session[:email] %>)
+    <% if logged_in? %>
+      <menu class="main-menu">
+        <p><a href="/">Home</a></p>
+        <p><a href="/">About</a></p>
+        <p><a href="/profile">Profile</a></p>
+        <p><a href="/workouts">Workouts</a></p>
+      </menu>
+      <section class="logged-in-details">
+        <section class="user-details">
+          <p>Username: <%= session[:username] %></p>
+          <p>Email: <%= session[:email] %></p>
+          <br>
+          <p>Had enough? <a href="/users/delete">Delete everything.</a> </p>
+        </section>
         <form action="/session" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button>Logout</button>
+          <button class="logout-btn">Logout</button>
         </form>
-
-        <form action="/users/<%= session[:user_id] %>" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <button>Delete user</button>
-        </form>
-        <a href="/profile">Profile</a>
-        <a href="/workouts">Workouts</a>
-      <% else %>
+      </section>
+    <% else %>
+      <menu class="main-menu">
+        <p><a href="/">Home</a></p>
+        <p><a href="/">About</a></p>
+      </menu>
+      <section class="logged-out-details">
         <form action="/session" method="post">
           <input type="email" name="email" placeholder="Email">
           <input type="password" name="password" placeholder="Password">
-          <button class="login-btn">LOG IN</button>
+          <button>LOG IN</button>
           <p class="signup">Not a member? <a href="/signup">Join now.</a></p>
         </form>
-      <% end %>
-    </section>
+      </section>
+    <% end %>
   </header>
 
 
