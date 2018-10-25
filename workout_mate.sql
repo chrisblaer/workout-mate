@@ -26,9 +26,6 @@ CREATE TABLE exercises_workouts(
   id SERIAL PRIMARY KEY,
   workout_id INTEGER,
   exercise_id INTEGER,
-  set_no INTEGER,
-  weight REAL,
-  reps INTEGER,
   FOREIGN KEY (workout_id) REFERENCES workouts (id) ON DELETE CASCADE,
   FOREIGN KEY (exercise_id) REFERENCES exercises (id) ON DELETE RESTRICT
 );
@@ -42,6 +39,10 @@ CREATE TABLE logs(
   created_date TIMESTAMPTZ,
   FOREIGN KEY (exercises_workout_id) REFERENCES exercises_workouts (id) ON DELETE CASCADE
 );
+
+-- exercises seed:
+INSERT INTO exercises(title, description, image_url) VALUES('Leg Press', 'lorem ipsum', 'https://www.muscleandperformance.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_650/MTQ1MzY2OTYwMzI1MDc2NTM1/leg-press-calf-raise.webp');
+
 
 -- dummy data; psql --
 u1 = User.new
@@ -78,6 +79,16 @@ ew1.save
 -----------------------
 -----------------------
 -----------------------
+INSERT INTO exercises(title, description, image_url) VALUES
+  ('Front Squat', 'lorem ipsum', 'https://www.muscleandperformance.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_576/MTQ1MzY2OTYwMzIzOTYyNDIz/frontsquat-b.webp'),
+  ('Romanian Deadlift', 'lorem ipsum', 'https://www.muscleandperformance.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_650/MTQ1MzY2OTYwMzI0NjgzMzE5/romanian_deadliftb.webp'),
+  ('Bulgarian Split Squat', 'lorem ipsum', 'https://www.muscleandperformance.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_650/MTQ1MzY2OTYwMzIzMTEwNDU1/bulgarian-split-squat_052.webp')
+  ;
+-----------------------
+-----------------------
+-----------------------
+
+
 e2 = Exercise.new
   e2.title = 'Leg Press'
   e2.description = 'lorem ipsum'

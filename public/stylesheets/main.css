@@ -104,6 +104,10 @@ header button {
   width: 75px;
 }
 
+footer {
+  background-color: red;
+}
+
 main {
   width: 80%;
   margin: auto;
@@ -146,4 +150,24 @@ main h2 {
 
 .workout-details p {
   margin: 0;
+}
+
+.workout-details p:first-child {
+  margin: 0 0 10px 0;
+}
+
+.workout-details button {
+  width: 100%;
+  border: 1px solid rgb(50, 173, 255);
+  background-color: rgb(50, 173, 255);
+  color: rgb(30, 30, 30);
+  cursor: pointer;
+  margin: 5px 0 0 0;
+}
+
+.workout-details #delete-workout-btn {
+  border: 1px solid red;
+  background-color: red;
+  color: white;
+  margin-top: 20px;
 }

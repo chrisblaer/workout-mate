@@ -3,57 +3,37 @@
 <h2>Trending workouts:</h2>
 
 <section class="popular-workouts">
-    <section class="workout-details">
-  <% Workout.all.each do |workout| %>
-  <table>
-    <tr>
-      <th>Title</th>
-      <td><%= workout.title %></td>
-    </tr>
-    <tr>
-      <th>Created by</th>
-      <td><%= workout.user.username %></td>
-    </tr>
-    <tr>
-      <th>Description</th>
-      <td><%= workout.description %></td>
-    </tr>
-    <tr>
-      <th>Last log</th>
-      <td><%= workout.exercises_workouts.last.logs.order(:created_date).last.created_date.to_time.to_date %></td>
-    </tr>
-    <tr>
-      <th>Exercises</th>
-    </tr>
-    <tr>
-      <% workout.exercises_workouts.each do |relationship| %>
-      <td><%= relationship.exercise.title %></td>
-      <% end %>
-    </tr>
-
-  </table>
-</section>
-      <p>Exercises:</p>
-      <% workout.exercises_workouts.each do |relationship| %>
-        <p><%= relationship.exercise.title %></p>
-      <% end %>
-    </section>
-  <% end %>
-
-<br>
-<br>
-
-<section class="popular-workouts">
   <% Workout.all.each do |workout| %>
     <section class="workout-details">
-      <p>Title: <%= workout.title %></p>
-      <p>Created by: <%= workout.user.username %></p>
-      <p>Description: <%= workout.description %></p>
-      <p>Most recent log: <%= workout.exercises_workouts.last.logs.order(:created_date).last.created_date.to_time.to_date %></p>
-      <p>Exercises:</p>
-      <% workout.exercises_workouts.each do |relationship| %>
-        <p><%= relationship.exercise.title %></p>
-      <% end %>
+      <table>
+        <tr>
+          <th>Title</th>
+          <td><%= workout.title %></td>
+        </tr>
+        <tr>
+          <th>Created by</th>
+          <td><%= workout.user.username %></td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td><%= workout.description %></td>
+        </tr>
+        <tr>
+          <th>Last log</th>
+          <td><%= workout.exercises_workouts.last.logs.order(:created_date).last.created_date.to_time.to_date %></td>
+        </tr>
+        <tr>
+          <th rowspan=5 valign="top">Exercises</th>
+        </tr>
+        <% workout.exercises_workouts.each do |relationship| %>
+          <tr>
+            <td><%= relationship.exercise.title %></td>
+          </tr>
+        <% end %>
+      </table>
     </section>
   <% end %>
 </section>
+
+<br>
+<br>

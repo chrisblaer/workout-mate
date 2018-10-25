@@ -1,8 +1,6 @@
-<h1>on profile page</h1>
+<h1>Your recent workout logs.</h1>
 
 <a href="/workouts/new">Create new workout</a>
-
-<h2>Your recent workout logs:</h2>
 
 <% current_user.workouts.each do |workout| %>
   <h3>Workout title: <%= workout.title %></h3>

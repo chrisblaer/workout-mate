@@ -1,17 +1,14 @@
-<h1>on workout overview page</h1>
+<h1><a href="/workouts/new">>> Create new workout <<</a></h1>
 
-<a href="/workouts/new">Create new workout</a>
-
-<p>All my workouts:</p>
+<h2>Saved workouts:</h2>
 
 <% current_user.workouts.each do |workout| %>
-  <ul>
-    <li>
-      <p>Workout ID: <%= workout.id %></p>
+
+<section class="workout-details">
       <p>Workout Title: <%= workout.title %></p>
-      <p>Workout Description: <%= workout.description %></p>
-      <p>Workout's associated user_id: <%= workout.user_id %></p>
-      
+      <p>Workout Description:</p>
+      <p><%= workout.description %></p>
+
       <form action="/workouts/<%= workout.id %>/log">
         <button>Log workout</button>
       </form>
@@ -22,8 +19,9 @@
 
       <form action="/workouts/<%= workout.id %>" method="post">
         <input type="hidden" name="_method" value="delete">
-        <button>Delete workout</button>
+        <button id="delete-workout-btn">Delete workout</button>
       </form>
-    </li>
-  </ul>
+
+</section>
+
 <% end %>
