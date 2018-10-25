@@ -1,6 +1,6 @@
 require 'pry'
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 
 require_relative 'db_config'
 require_relative 'models/exercise'
@@ -148,13 +148,11 @@ end
 get '/workouts/:id/log' do
   @workout = Workout.find_by(id: params[:id])
   @exercises_workout_rel = ExercisesWorkout.select{ |rel| rel.workout_id == params[:id].to_i}
-  # binding.pry
   erb :log
 end
 
 post '/workouts/log' do
   redirect to('/') unless logged_in?
-  # binding.pry
   params['exercises_workout_ids'].each do |key, relationship_id|
     log = Log.new
     log.exercises_workout_id = params['exercises_workout_ids'][key]

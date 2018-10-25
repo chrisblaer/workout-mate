@@ -6,6 +6,7 @@ body {
   font-family: 'Comfortaa', cursive;
   margin: 0;
   background-color: white;
+  color: rgb(30, 30, 30);
 }
 
 a{
@@ -103,11 +104,46 @@ header button {
   width: 75px;
 }
 
+main {
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
+main h1 {
+  text-align: center;
+  font-size: 3em;
+  padding: 40px 0;
+  border-top: 1px solid rgb(50, 173, 255);
+  border-bottom: 1px solid rgb(50, 173, 255);
+}
 
+main h2 {
+  text-align: center;
+}
 
-header #delete-btn {
-  background-color: red;
-  border: 1px solid red;
+.popular-workouts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
+.workout-details {
+  margin: 0 20px 0 0;
+  padding: 20px;
+  border: 1px solid rgb(50, 173, 255);
+  width: 30%;
+}
+
+.workout-details:last-child {
+  margin: 0;
+}
+
+.workout-details th {
+  text-align: left;
+}
+
+.workout-details p {
+  margin: 0;
 }
