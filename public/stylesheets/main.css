@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comfortaa', cursive;
+  margin: 0;
+  background-color: white;
+}
+
+a{
+  color: rgb(50, 173, 255);
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(30, 30, 30);
+  color: white;
+  height: 75px;
+}
+
+.logo {
+  margin: 0 0 0 37.5px;
+  font-family: 'Black Ops One', cursive;
+  font-size: 36px;
+  color: rgb(50, 173, 255);
+}
+
+.main-menu {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.main-menu p {
+  border-left: 1px solid rgb(50, 173, 255);
+  width: 150px;
+  height: 100%;
+  margin: 0;
+}
+
+.main-menu p:last-child {
+  border-right: 1px solid rgb(50, 173, 255);
+}
+
+.main-menu a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.login-signup {
+  margin: 0 37.5px 0 0;
+}
+
+.login-signup input {
+  border: 1px solid rgb(50, 173, 255);
+  background-color: rgb(30, 30, 30);
+  width: 200px;
+  height: 30px;
+  color: white;
+  padding: 0 10px;
+}
+
+.login-btn {
+  border: 1px solid rgb(50, 173, 255);
+  background-color: rgb(50, 173, 255);
+  color: rgb(30, 30, 30);
+  height: 30px;
+  padding: 0 7px;
+}
+
+.signup {
+  font-size: 12px;
+  margin: 10px 0 0 0;
+  text-align: right;
+}
+

@@ -5,38 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/stylesheets/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Comfortaa" rel="stylesheet">
   <title>Workout! Mate</title>
 </head>
 <body>
   <header>
-  <h1>Workout! Mate</h1>
-  <% if logged_in? %>
-    Logged in as: <%= session[:username] %> (<%= session[:email] %>)
-    <form action="/session" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <button>Logout</button>
-    </form>
+    <a href="/" class="logo">Workout Mate</a>
 
-    <form action="/users/<%= session[:user_id] %>" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <button>Delete user</button>
-    </form>
-    
-    <a href="/">Home</a>
-    <a href="/profile">Profile</a>
-    <a href="/workouts">Workouts</a>
+    <menu class="main-menu">
+      <p><a href="/">Home</a></p>
+      <p><a href="/">About</a></p>
+    </menu>
 
-  <% else %>
-    <form action="/session" method="post">
-      <input type="email" name="email" placeholder="Email">
-      <input type="password" name="password" placeholder="Password">
-      <button>Login</button>
-    </form>
-    <a href="/signup">Sign Up</a>
-    <a href="/">Home</a>
-  <% end %>
+    <section class="login-signup">
+      <% if logged_in? %>
+        Logged in as: <%= session[:username] %> (<%= session[:email] %>)
+        <form action="/session" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button>Logout</button>
+        </form>
 
-
+        <form action="/users/<%= session[:user_id] %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button>Delete user</button>
+        </form>
+        <a href="/profile">Profile</a>
+        <a href="/workouts">Workouts</a>
+      <% else %>
+        <form action="/session" method="post">
+          <input type="email" name="email" placeholder="Email">
+          <input type="password" name="password" placeholder="Password">
+          <button class="login-btn">LOG IN</button>
+          <p class="signup">Not a member? <a href="/signup">Join now.</a></p>
+        </form>
+      <% end %>
+    </section>
   </header>
 
 

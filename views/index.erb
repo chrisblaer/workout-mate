@@ -1,1 +1,12 @@
 <h1>on index page!</h1>
+
+<% Workout.all.each do |workout| %>
+  <p>Username: <%= workout.user.username %></p>
+  <p>Workout Title: <%= workout.title %></p>
+  <p>Workout last completed: <%= workout.exercises_workouts.last.logs.order(:created_date).last.created_date.to_time.to_date %></p>
+  <p>Exercises:</p>
+  <% workout.exercises_workouts.each do |relationship| %>
+    <p><%= relationship.exercise.title %></p>
+  <% end %>
+  <br>
+<% end %>
