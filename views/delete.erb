@@ -1,9 +1,11 @@
-<p>Are you sure you want to delete your user record?</p>
-<p>This will also delete your workouts and logged history.</p>
+<section class="delete-page">
+  <p>Are you sure you want to delete your user record?</p>
+  <p>This will also delete your workouts and logged history.</p>
 
-<p>
-  <form action="/users/<%= session[:user_id] %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <button id="delete-btn">Yes, delete everything!</button>
-  </form>
-</p>
+  <p>
+    <form action="/users/<%= session[:user_id] %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button id="delete-btn">Yes, delete everything!</button>
+    </form>
+  </p>
+</section>

@@ -22,6 +22,10 @@ a{
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -52,12 +56,11 @@ header {
   border-right: 1px solid rgb(50, 173, 255);
 }
 
-header button {
+header button, .signup-form button {
   border: 1px solid rgb(50, 173, 255);
   background-color: rgb(50, 173, 255);
   color: rgb(30, 30, 30);
   height: 30px;
-  cursor: pointer;
 }
 
 .logged-out-details, .logged-in-details {
@@ -81,6 +84,19 @@ header button {
   font-size: 12px;
   margin: 10px 0 0 0;
   text-align: right;
+}
+
+.signup-form {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-form input {
+  border: 1px solid rgb(50, 173, 255);
+  width: 200px;
+  height: 30px;
+  padding: 0 10px;
+  margin-right: 5px;
 }
 
 
@@ -152,7 +168,7 @@ main h2 {
   margin: 5px 0 0 0;
 }
 
-.workout-details #delete-workout-btn {
+.workout-details #delete-workout-btn, .delete-page button {
   border: 1px solid red;
   background-color: red;
   color: white;
@@ -176,4 +192,10 @@ main h2 {
 .workout-details .exercises-label {
   padding: 0 10px 0 0;
   border-right: 1px solid rgb(50, 173, 255);
+}
+
+.delete-page {
+  text-align: center;
+  border-top: 1px solid rgb(50, 173, 255);
+  border-bottom: 1px solid rgb(50, 173, 255);
 }
