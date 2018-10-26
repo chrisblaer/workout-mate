@@ -2,12 +2,21 @@
 
 <h2>Saved workouts:</h2>
 
-<% current_user.workouts.each do |workout| %>
-
-<section class="workout-details">
-      <p>Workout Title: <%= workout.title %></p>
-      <p>Workout Description:</p>
+<section class="workouts">
+  <% current_user.workouts.each do |workout| %>
+    <section class="workout-details">
+      <p class="workout-title-label">Workout Title: <%= workout.title %></p>
+      <p class="workout-description-label">Workout Description:</p>
       <p><%= workout.description %></p>
+      <section class="exercise-details">
+        <p class="exercises-label">Exercises:</p>
+
+        <section class="exercise-titles">
+          <% workout.exercises_workouts.each do |relationship| %>
+            <p><%= relationship.exercise.title %></p>
+          <% end %>
+        </section>
+      </section>
 
       <form action="/workouts/<%= workout.id %>/log">
         <button>Log workout</button>
@@ -21,7 +30,6 @@
         <input type="hidden" name="_method" value="delete">
         <button id="delete-workout-btn">Delete workout</button>
       </form>
-
+    </section>
+  <% end %>
 </section>
-
-<% end %>

@@ -6,19 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/stylesheets/main.css">
   <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Comfortaa" rel="stylesheet">
-  <title>Workout! Mate</title>
+  <title>Workout Mate</title>
 </head>
 <body>
   <header>
     <a href="/" class="logo">Workout Mate</a>
 
     <% if logged_in? %>
-      <menu class="main-menu">
-        <p><a href="/">Home</a></p>
-        <p><a href="/">About</a></p>
-        <p><a href="/profile">Profile</a></p>
-        <p><a href="/workouts">Workouts</a></p>
-      </menu>
+      <nav class="main-nav">
+        <a href="/">Home</a>
+        <a href="/">About</a>
+        <a href="/profile">Profile</a>
+        <a href="/workouts">Workouts</a>
+      </nav>
       <section class="logged-in-details">
         <section class="user-details">
           <p>Username: <%= session[:username] %></p>
@@ -28,14 +28,14 @@
         </section>
         <form action="/session" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button class="logout-btn">Logout</button>
+          <button class="logout-btn">LOG OUT</button>
         </form>
       </section>
     <% else %>
-      <menu class="main-menu">
-        <p><a href="/">Home</a></p>
-        <p><a href="/">About</a></p>
-      </menu>
+      <nav class="main-nav">
+        <a href="/">Home</a>
+        <a href="/">About</a>
+      </nav>
       <section class="logged-out-details">
         <form action="/session" method="post">
           <input type="email" name="email" placeholder="Email">
@@ -52,7 +52,7 @@
     <%= yield %>
   </main>
   <footer>
-    some sort of footer
+    &copy; Workout Mate
   </footer>
 </body>
 </html>

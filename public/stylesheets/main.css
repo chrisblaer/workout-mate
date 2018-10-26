@@ -2,11 +2,19 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Comfortaa', cursive;
   margin: 0;
   background-color: white;
   color: rgb(30, 30, 30);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
 }
 
 a{
@@ -20,44 +28,28 @@ header {
   align-items: center;
   background-color: rgb(30, 30, 30);
   color: white;
-  height: 75px;
 }
 
 .logo {
-  margin: 0 0 0 37.5px;
   font-family: 'Black Ops One', cursive;
   font-size: 36px;
   color: rgb(50, 173, 255);
+  padding: 10px;
 }
 
-.main-menu {
+.main-nav {
   display: flex;
-  padding: 0;
-  margin: 0;
-  height: 100%;
 }
 
-.main-menu p {
+.main-nav a {
+  min-width: 100px;
+  padding: 10px;
   border-left: 1px solid rgb(50, 173, 255);
-  width: 150px;
-  height: 100%;
-  margin: 0;
+  text-align: center;
 }
 
-.main-menu p:last-child {
+.main-nav a:last-child {
   border-right: 1px solid rgb(50, 173, 255);
-}
-
-.main-menu a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-
-.logged-out-details {
-  margin: 0 37.5px 0 0;
 }
 
 header button {
@@ -65,8 +57,15 @@ header button {
   background-color: rgb(50, 173, 255);
   color: rgb(30, 30, 30);
   height: 30px;
-  padding: 0 7px;
   cursor: pointer;
+}
+
+.logged-out-details, .logged-in-details {
+  margin: 0 10px 0 0;
+}
+
+.logged-in-details {
+  display: flex;
 }
 
 .logged-out-details input {
@@ -84,9 +83,6 @@ header button {
   text-align: right;
 }
 
-.logged-in-details {
-  display: flex;
-}
 
 .user-details {
   font-size: 12px;
@@ -99,13 +95,12 @@ header button {
   margin: 0;
 }
 
-.logout-btn {
-  height: 75px;
-  width: 75px;
-}
-
 footer {
-  background-color: red;
+  background-color: rgb(30, 30, 30);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  flex-grow: 1;
 }
 
 main {
@@ -127,21 +122,17 @@ main h2 {
   text-align: center;
 }
 
-.popular-workouts {
+.workouts {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .workout-details {
-  margin: 0 20px 0 0;
+  margin: 0 0 20px 0;
   padding: 20px;
   border: 1px solid rgb(50, 173, 255);
-  width: 30%;
-}
-
-.workout-details:last-child {
-  margin: 0;
+  width: 45%;
 }
 
 .workout-details th {
@@ -150,10 +141,6 @@ main h2 {
 
 .workout-details p {
   margin: 0;
-}
-
-.workout-details p:first-child {
-  margin: 0 0 10px 0;
 }
 
 .workout-details button {
@@ -170,4 +157,23 @@ main h2 {
   background-color: red;
   color: white;
   margin-top: 20px;
+}
+
+.workout-details .exercise-details {
+  display: flex;
+  margin: 10px 0;
+}
+
+.exercise-titles {
+  margin: 0 0 0 10px;
+}
+
+.workout-details .workout-title-label {
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+
+.workout-details .exercises-label {
+  padding: 0 10px 0 0;
+  border-right: 1px solid rgb(50, 173, 255);
 }
