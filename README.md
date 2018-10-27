@@ -2,7 +2,7 @@
 
 Workout Mate is an app that allows you to Discover, create & log your workouts.
 
-It was built during General Assembly's Web Development Immersive course as part of project 2, which challenged us to build a Sinatra based CRUP application of our choice.
+It was built during General Assembly's Web Development Immersive course as part of project 2, which challenged us to build a Sinatra based CRUD application of our choice.
 
 The app is available on [Heroku](https://limitless-hollows-97939.herokuapp.com/)
 
